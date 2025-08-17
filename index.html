@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
+</html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,25 +16,34 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #334155;
         }
+
         /* Custom scrollbar for a polished look */
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #e2e8f0;
         }
+
         ::-webkit-scrollbar-thumb {
             background-color: #334155;
             border-radius: 4px;
         }
+
         /* Style for the bottle SVG background pattern */
         .bottle-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2394a3b8' fill-opacity='0.2'%3E%3Cpath d='M30 0L0 30L30 60L60 30L30 0ZM15 30L30 15L45 30L30 45L15 30Z'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 60px 60px;
         }
+
         .pamphlet-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2364748b' fill-opacity='0.1'%3E%3Cpolygon points='0 10 10 0 20 10 10 20'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 20px 20px;
@@ -42,104 +54,316 @@
 <body>
 
     <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Vistron</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">About Us</a>
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors">Our Services</a>
-                <a href="#contact" class="text-white bg-blue-600 hover:bg-blue-700 font-medium px-4 py-2 rounded-full transition-colors">Contact Us</a>
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-6 py-6">
+            <div
+                class="flex justify-between items-center bg-white bg-opacity-10 backdrop-blur-lg rounded-full px-8 py-4 shadow-2xl border border-white border-opacity-20">
+                <!-- Logo with gradient -->
+                <a href="#"
+                    class="text-3xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
+                    Vistron
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#about"
+                        class="relative px-4 py-2 text-white font-medium hover:text-blue-300 transition-all duration-300 group">
+                        About Us
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#services"
+                        class="relative px-4 py-2 text-white font-medium hover:text-blue-300 transition-all duration-300 group">
+                        Our Services
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#contact"
+                        class="ml-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button"
+                    class="md:hidden text-white hover:text-blue-300 focus:outline-none p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-menu">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            </button>
         </nav>
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
-            <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Us</a>
-            <a href="#services" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Our Services</a>
-            <a href="#contact" class="block px-4 py-2 text-white bg-blue-600 hover:bg-blue-700">Contact Us</a>
+        <div id="mobile-menu" class="hidden md:hidden mx-6 mt-4">
+            <div
+                class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white border-opacity-20">
+                <a href="#about"
+                    class="block px-4 py-3 text-white font-medium hover:text-blue-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition-all duration-300">About
+                    Us</a>
+                <a href="#services"
+                    class="block px-4 py-3 text-white font-medium hover:text-blue-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition-all duration-300">Our
+                    Services</a>
+                <a href="#contact"
+                    class="block px-4 py-3 mt-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-center">Contact
+                    Us</a>
+            </div>
         </div>
     </header>
 
     <main class="mt-16">
 
         <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center text-center bg-gray-900 text-white overflow-hidden">
-            <!-- Background Image/Pattern -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1549445209-66c5d140e698?q=80&w=2940&auto=format&fit=crop');"></div>
-            <div class="absolute inset-0 bg-blue-900 opacity-70"></div>
-            <div class="relative z-10 p-8 max-w-4xl mx-auto">
-                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4">
-                    Vistron
-                </h1>
-                <p class="text-xl sm:text-2xl font-light mb-8">
-                    Crafting unforgettable offline experiences.
-                </p>
-                <a href="#contact" class="inline-block bg-white text-gray-900 hover:bg-gray-200 font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                    Book a Consultation
-                </a>
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Floating Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div
+                    class="absolute top-20 left-10 w-20 h-20 bg-blue-400 bg-opacity-20 rounded-full blur-xl animate-pulse">
+                </div>
+                <div
+                    class="absolute top-40 right-20 w-32 h-32 bg-purple-400 bg-opacity-20 rounded-full blur-xl animate-pulse delay-1000">
+                </div>
+                <div
+                    class="absolute bottom-40 left-20 w-24 h-24 bg-pink-400 bg-opacity-20 rounded-full blur-xl animate-pulse delay-500">
+                </div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+                <!-- Main Title with Staggered Animation -->
+                <div class="mb-8">
+                    <h1 class="text-6xl sm:text-8xl md:text-9xl font-black mb-4">
+                        <span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 cursor-default">V</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-75 cursor-default">i</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-150 cursor-default">s</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-225 cursor-default">t</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-300 cursor-default">r</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-375 cursor-default">o</span><span
+                            class="inline-block bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-450 cursor-default">n</span>
+                    </h1>
+                </div>
+
+                <!-- Tagline with Typewriter Effect -->
+                <div class="mb-12">
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-light text-white text-opacity-90 leading-relaxed">
+                        Crafting <span
+                            class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold">unforgettable</span>
+                        offline experiences.
+                    </p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contact"
+                        class="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-bold rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10">Book a Consultation</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </a>
+                    <a href="#about"
+                        class="px-8 py-4 border-2 border-white border-opacity-30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white hover:bg-opacity-10 hover:border-opacity-50 transition-all duration-300">
+                        Learn More
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div class="container mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12">Our Story</h2>
-                <div class="max-w-4xl mx-auto text-lg text-gray-600 leading-relaxed mb-12">
-                    <p class="mb-6">
-                        Vistron was born from a simple idea: in a world saturated with digital noise, a physical, tangible message holds immense power. Founders Akash and Raghu, frustrated by the fleeting nature of online ads, envisioned a more impactful and personal way to connect brands with their audiences. Their solution? The humble bottle and the versatile pamphlet.
-                    </p>
-                    <p>
-                        Our mission is to help businesses create lasting impressions through unique, hands-on marketing campaigns that stand out from the crowd. We believe in creativity, tangibility, and reaching people where they least expect it.
-                    </p>
+        <section id="about" class="py-32 px-6 relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0">
+                <div
+                    class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full opacity-10 blur-3xl">
                 </div>
+                <div
+                    class="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full opacity-10 blur-3xl">
+                </div>
+            </div>
+
+            <div class="container mx-auto relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl sm:text-6xl font-black mb-6">
+                        <span class="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">Our</span>
+                        <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            Story</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Story Content -->
+                <div class="max-w-6xl mx-auto mb-20">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <!-- Text Content -->
+                        <div class="space-y-8">
+                            <div
+                                class="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-white mb-4">The Vision</h3>
+                                <p class="text-white text-opacity-90 leading-relaxed">
+                                    Vistron was born from a simple idea: in a world saturated with digital noise, a
+                                    physical, tangible message holds immense power. Founders Akash and Raghu envisioned
+                                    a more impactful way to connect brands with their audiences.
+                                </p>
+                            </div>
+
+                            <div
+                                class="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-white mb-4">The Mission</h3>
+                                <p class="text-white text-opacity-90 leading-relaxed">
+                                    Our mission is to help businesses create lasting impressions through unique,
+                                    hands-on marketing campaigns that stand out from the crowd. We believe in
+                                    creativity, tangibility, and reaching people where they least expect it.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Visual Element -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-3xl p-1">
+                                <div class="bg-black bg-opacity-20 backdrop-blur-lg rounded-3xl p-12 text-center">
+                                    <div class="text-6xl mb-6">🚀</div>
+                                    <h3 class="text-3xl font-bold text-white mb-4">Innovation First</h3>
+                                    <p class="text-white text-opacity-80">Transforming traditional marketing with
+                                        creative offline solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founders Section -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                     <!-- Akash's Profile -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center text-center">
-                        <img src="akash-founder.jpg" alt="Akash, Founder" class="w-36 h-36 rounded-full mb-4 ring-4 ring-blue-500">
-                        <h3 class="text-2xl font-semibold text-gray-800">Akash</h3>
-                        <p class="text-blue-600 font-medium">Founder</p>
-                        <p class="mt-4 text-gray-600">A visionary with a passion for disruptive marketing and a keen eye for detail. Akash leads the strategic planning and creative direction of every campaign.</p>
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="relative bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300 text-center">
+                            <div class="relative mb-6">
+                                <div
+                                    class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-1">
+                                    <img src="akash-founder.jpg" alt="Akash, Founder"
+                                        class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm">✓</span>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Akash</h3>
+                            <p class="text-blue-300 font-semibold mb-4">Founder & Visionary</p>
+                            <p class="text-white text-opacity-80 leading-relaxed">A visionary with a passion for
+                                disruptive marketing and a keen eye for detail. Akash leads the strategic planning and
+                                creative direction of every campaign.</p>
+                        </div>
                     </div>
+
                     <!-- Raghu's Profile -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center text-center">
-                        <img src="raghu-cofounder.jpg" alt="Raghu, Co-founder" class="w-36 h-36 rounded-full mb-4 ring-4 ring-blue-500">
-                        <h3 class="text-2xl font-semibold text-gray-800">Raghu</h3>
-                        <p class="text-blue-600 font-medium">Co-founder</p>
-                        <p class="mt-4 text-gray-600">The operational brain behind Vistron. Raghu ensures that every campaign is executed flawlessly, from design to distribution, on time and on budget.</p>
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="relative bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300 text-center">
+                            <div class="relative mb-6">
+                                <div
+                                    class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-400 to-pink-500 p-1">
+                                    <img src="raghu-cofounder.jpg" alt="Raghu, Co-founder"
+                                        class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm">⚡</span>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Raghu</h3>
+                            <p class="text-purple-300 font-semibold mb-4">Co-founder & Operations</p>
+                            <p class="text-white text-opacity-80 leading-relaxed">The operational brain behind Vistron.
+                                Raghu ensures that every campaign is executed flawlessly, from design to distribution,
+                                on time and on budget.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Our Services Section -->
-        <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-            <div class="container mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+        <section id="services" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl shadow-2xl border border-white border-opacity-30 p-12">
+                <div class="text-center">
+                <div class="mb-8">
+                    <h2 class="text-5xl sm:text-6xl md:text-7xl font-black mb-4">
+                        <span
+                            class="inline-block bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 cursor-default">O</span><span
+                            class="inline-block bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-75 cursor-default">u</span><span
+                            class="inline-block bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-150 cursor-default">r</span>
+                        <span class="inline-block mx-4"></span>
+                        <span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-225 cursor-default">S</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-300 cursor-default">e</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-375 cursor-default">r</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-450 cursor-default">v</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-525 cursor-default">i</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-600 cursor-default">c</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-675 cursor-default">e</span><span
+                            class="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-110 transition-transform duration-500 delay-750 cursor-default">s</span>
+                    </h2>
+                    <div
+                        class="w-32 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mx-auto rounded-full">
+                    </div>
+                </div>
                 <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-                    We specialize in creating tangible, memorable marketing experiences that cut through the digital clutter. Our unique approach leverages the power of physical objects to build a genuine connection with your audience.
+                    We specialize in creating tangible, memorable marketing experiences that cut through the digital
+                    clutter. Our unique approach leverages the power of physical objects to build a genuine connection
+                    with your audience.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     <!-- Bottle Marketing -->
-                    <div class="group p-8 rounded-2xl shadow-xl text-center bg-gray-50 bottle-pattern transition-transform duration-300 hover:scale-105">
+                    <div
+                        class="group p-8 rounded-2xl shadow-xl text-center bg-gray-50 bottle-pattern transition-transform duration-300 hover:scale-105">
                         <div class="inline-block p-4 rounded-full bg-blue-600 text-white mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bottle"><rect x="9" y="2" width="6" height="6" rx="2"/><path d="M10 8v2a2 2 0 0 0 2 2 2 2 0 0 0 2-2V8"/><path d="M7 22v-4a5 5 0 0 1 10 0v4"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-bottle">
+                                <rect x="9" y="2" width="6" height="6" rx="2" />
+                                <path d="M10 8v2a2 2 0 0 0 2 2 2 2 0 0 0 2-2V8" />
+                                <path d="M7 22v-4a5 5 0 0 1 10 0v4" />
+                            </svg>
                         </div>
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Bottle-Based Marketing</h3>
                         <p class="text-gray-600 leading-relaxed">
-                            We use custom-branded bottles to deliver your message in a creative and memorable way. The image above shows a sample of how a brand message can be integrated. Whether filled with a special drink, a personalized message, or a promotional item, bottles create a unique, tactile experience that consumers will remember long after they've finished the contents.
+                            We use custom-branded bottles to deliver your message in a creative and memorable way. The
+                            image above shows a sample of how a brand message can be integrated. Whether filled with a
+                            special drink, a personalized message, or a promotional item, bottles create a unique,
+                            tactile experience that consumers will remember long after they've finished the contents.
                         </p>
                     </div>
                     <!-- Pamphlet Marketing -->
-                    <div class="group p-8 rounded-2xl shadow-xl text-center bg-gray-50 pamphlet-pattern transition-transform duration-300 hover:scale-105">
+                    <div
+                        class="group p-8 rounded-2xl shadow-xl text-center bg-gray-50 pamphlet-pattern transition-transform duration-300 hover:scale-105">
                         <div class="inline-block p-4 rounded-full bg-blue-600 text-white mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-book-open-text">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                                <path d="M9 8h6" />
+                                <path d="M9 12h6" />
+                                <path d="M9 16h6" />
+                            </svg>
                         </div>
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Creative Pamphlet Campaigns</h3>
                         <p class="text-gray-600 leading-relaxed">
-                            More than just flyers, our pamphlets are designed as mini-experiences. From interactive fold-outs to unique paper textures and die-cut shapes, we transform traditional pamphlets into engaging tools that captivate your audience and effectively communicate your brand's value.
+                            More than just flyers, our pamphlets are designed as mini-experiences. From interactive
+                            fold-outs to unique paper textures and die-cut shapes, we transform traditional pamphlets
+                            into engaging tools that captivate your audience and effectively communicate your brand's
+                            value.
                         </p>
                     </div>
                 </div>
@@ -147,52 +371,120 @@
         </section>
 
         <!-- Why Choose Us Section -->
-        <section id="why-choose-us" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-            <div class="container mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-12">Why Choose Us?</h2>
-                <div class="max-w-4xl mx-auto text-left">
-                    <ul class="space-y-6 text-lg text-gray-600">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dollar-sign text-blue-600 mt-1 mr-4 flex-shrink-0"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Cost-Effective Solutions</h4>
-                                <p>Our campaigns are designed to maximize your ROI, offering a high-impact alternative to expensive digital ad placements.</p>
+        <section id="why-choose-us" class="py-20 px-6">
+            <div
+                class="max-w-7xl mx-auto bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl shadow-2xl border border-white border-opacity-30 p-12 relative overflow-hidden">
+                <!-- Background Elements -->
+                <div class="absolute inset-0">
+                    <div
+                        class="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-green-400 to-blue-600 rounded-full opacity-5 blur-3xl">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-1/4 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-5 blur-3xl">
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-20">
+                        <h2 class="text-5xl sm:text-6xl font-black mb-6">
+                            <span class="bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">Why
+                                Choose</span>
+                            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                Us?</span>
+                        </h2>
+                        <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+                    </div>
+
+                    <!-- Reasons Cards -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <!-- Cost-Effective Solutions -->
+                        <div
+                            class="bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl p-8 border border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-white">
+                                        <line x1="12" x2="12" y1="2" y2="22" />
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Cost-Effective Solutions</h3>
                             </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb text-blue-600 mt-1 mr-4 flex-shrink-0"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/><path d="M10 18a2 2 0 1 1 4 0"/></svg>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Unmatched Creativity</h4>
-                                <p>We don't just execute campaigns; we craft compelling stories that capture attention and build brand loyalty.</p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Our campaigns are designed to maximize your ROI, offering a high-impact alternative to
+                                expensive digital ad placements.
+                            </p>
+                        </div>
+
+                        <!-- Unmatched Creativity -->
+                        <div
+                            class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-200 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-white">
+                                        <path
+                                            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5" />
+                                        <path d="M9 18h6" />
+                                        <path d="M10 22h4" />
+                                        <path d="M10 18a2 2 0 1 1 4 0" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Unmatched Creativity</h3>
                             </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone text-blue-600 mt-1 mr-4 flex-shrink-0"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Targeted Local Reach</h4>
-                                <p>Our offline strategies allow for precise targeting of specific geographic areas, ensuring your message reaches the right audience.</p>
+                            <p class="text-gray-700 leading-relaxed">
+                                We don't just execute campaigns; we craft compelling stories that capture attention and
+                                build brand loyalty.
+                            </p>
+                        </div>
+
+                        <!-- Targeted Local Reach -->
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-white">
+                                        <path d="m3 11 18-5v12L3 14v-3z" />
+                                        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Targeted Local Reach</h3>
                             </div>
-                        </li>
-                    </ul>
+                            <p class="text-gray-700 leading-relaxed">
+                                Our offline strategies allow for precise targeting of specific geographic areas,
+                                ensuring your message reaches the right audience.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action Section -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600 text-white text-center">
+        <section class="py-20 px-4 sm:px-6 lg:px-8 text-center">
             <div class="container mx-auto">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to make a splash?</h2>
                 <p class="text-lg mb-8 max-w-2xl mx-auto">
-                    Contact us today to discover how our unique offline marketing strategies can help your brand stand out and reach new audiences.
+                    Contact us today to discover how our unique offline marketing strategies can help your brand stand
+                    out and reach new audiences.
                 </p>
-                <a href="#contact" class="inline-block bg-white text-blue-600 hover:bg-gray-200 font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                <a href="#contact"
+                    class="inline-block bg-white text-blue-600 hover:bg-gray-200 font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
                     Book a Consultation
                 </a>
             </div>
         </section>
 
         <!-- Contact Us Section -->
-        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto">
                 <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12">Get in Touch</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -202,34 +494,50 @@
                         <form id="contact-form" class="space-y-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
+                                <input type="text" id="name" name="name" placeholder="Your Name"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
+                                <input type="email" id="email" name="email" placeholder="you@example.com"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3"></textarea>
+                                <textarea id="message" name="message" rows="4"
+                                    placeholder="Tell us about your project..."
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition-colors">
+                            <button type="submit"
+                                class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition-colors">
                                 Send Message
                             </button>
                         </form>
                     </div>
                     <!-- Contact Details -->
-                    <div class="bg-white p-4 max-w-xs w-full rounded-2xl shadow-xl flex flex-col justify-center mx-auto">
+                    <div
+                        class="bg-white p-4 max-w-xs w-full rounded-2xl shadow-xl flex flex-col justify-center mx-auto">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Information</h3>
                         <div class="space-y-4 text-gray-600">
                             <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone text-blue-600 mr-3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2.07L19.7 21a1.9 1.9 0 0 1-1.84-1.32l-.56-2.1c-.24-.95-.91-1.57-1.9-.99L12.5 13.5l-2-2.5-2.5-2.5-3.5-3.5a1.9 1.9 0 0 1-1.07-1.84l-1.5-.5a2 2 0 0 1 2.07-2.18h3a2 2 0 0 1 2 2.18v.5c.24.95.91 1.57 1.9.99L10 6.5l2 2.5 2.5 2.5 3.5 3.5a1.9 1.9 0 0 1 1.84 1.07l.56 2.1c.24.95.91 1.57 1.9.99z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-phone text-blue-600 mr-3">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2.07L19.7 21a1.9 1.9 0 0 1-1.84-1.32l-.56-2.1c-.24-.95-.91-1.57-1.9-.99L12.5 13.5l-2-2.5-2.5-2.5-3.5-3.5a1.9 1.9 0 0 1-1.07-1.84l-1.5-.5a2 2 0 0 1 2.07-2.18h3a2 2 0 0 1 2 2.18v.5c.24.95.91 1.57 1.9.99L10 6.5l2 2.5 2.5 2.5 3.5 3.5a1.9 1.9 0 0 1 1.84 1.07l.56 2.1c.24.95.91 1.57 1.9.99z" />
+                                </svg>
                                 <div>
                                     <p class="font-medium text-gray-800 text-sm">Phone</p>
                                     <p class="text-sm">+917416777662</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-blue-600 mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-mail text-blue-600 mr-3">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
                                 <div>
                                     <p class="font-medium text-gray-800 text-sm">Email</p>
                                     <p class="text-sm">somavarapuakash26@gmail.com</p>
@@ -239,7 +547,8 @@
                     </div>
                 </div>
                 <!-- Contact Form Confirmation Message -->
-                <div id="form-success-message" class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 p-4 rounded-lg bg-green-500 text-white font-semibold shadow-lg">
+                <div id="form-success-message"
+                    class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 p-4 rounded-lg bg-green-500 text-white font-semibold shadow-lg">
                     Message sent successfully! We'll be in touch soon.
                 </div>
             </div>
@@ -248,13 +557,18 @@
     </main>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg transition-transform duration-300 transform scale-0 hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up"><path d="m18 15-6-6-6 6"/></svg>
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg transition-transform duration-300 transform scale-0 hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-arrow-up">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
     </button>
 
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
+    <footer class="text-gray-400 py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-6">
                 <a href="#" class="text-2xl font-bold text-white">Vistron</a>
@@ -262,13 +576,30 @@
             <div class="flex justify-center space-x-6 mb-6">
                 <!-- Social media icons -->
                 <a href="#" class="hover:text-blue-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c-.6.3-1.2.6-1.8.6S16.5 7.3 16 7c-1.2-1.3-3.6-2.6-6-2.6-2.4 0-4.8 1.3-6 2.6s-2.4 5.3-2.4 7c0 1.7 1.2 3.3 3.6 4.6 1.2 1.3 3.6 2.6 6 2.6 2.4 0 4.8-1.3 6-2.6s2.4-5.3 2.4-7c0-1.7-1.2-3.3-3.6-4.6-1.2-1.3-3.6-2.6-6-2.6-2.4 0-4.8 1.3-6 2.6-1.2 1.3-2.4 3.6-2.4 6s1.2 4.6 2.4 6c.6.6 1.2 1.3 1.8 1.9.6.6 1.2 1.3 1.8 1.9"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-twitter">
+                        <path
+                            d="M22 4s-.7 2.1-2 3.4c-.6.3-1.2.6-1.8.6S16.5 7.3 16 7c-1.2-1.3-3.6-2.6-6-2.6-2.4 0-4.8 1.3-6 2.6s-2.4 5.3-2.4 7c0 1.7 1.2 3.3 3.6 4.6 1.2 1.3 3.6 2.6 6 2.6 2.4 0 4.8-1.3 6-2.6s2.4-5.3 2.4-7c0-1.7-1.2-3.3-3.6-4.6-1.2-1.3-3.6-2.6-6-2.6-2.4 0-4.8 1.3-6 2.6-1.2 1.3-2.4 3.6-2.4 6s1.2 4.6 2.4 6c.6.6 1.2 1.3 1.8 1.9.6.6 1.2 1.3 1.8 1.9" />
+                    </svg>
                 </a>
                 <a href="#" class="hover:text-blue-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-linkedin">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect width="4" height="12" x="2" y="9" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
                 </a>
                 <a href="#" class="hover:text-blue-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-instagram">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
                 </a>
             </div>
             <p class="text-sm">© 2024 Vistron. All rights reserved.</p>
@@ -362,4 +693,5 @@
         });
     </script>
 </body>
+
 </html>
