@@ -1,0 +1,115 @@
+.cta-section {
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-container {
+  background: linear-gradient(135deg, rgba(227, 6, 19, 0.05), rgba(255, 255, 255, 0.02));
+  border-radius: var(--radius-lg);
+  padding: 60px 5%;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.cta-content h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.cta-form-wrapper {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form-error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .cta-content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-container {
+    padding: 40px 20px;
+  }
+  .cta-form-wrapper {
+    padding: 24px;
+  }
+}

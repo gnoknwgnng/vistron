@@ -1,0 +1,97 @@
+.global-presence {
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header.dark {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 60px;
+}
+
+.map-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+}
+
+.map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.map-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-red);
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.dot-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(227, 6, 19, 0.4);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Arbitrary positions for aesthetic map dots */
+.dot-1 { top: 30%; left: 60%; }
+.dot-2 { top: 45%; left: 75%; }
+.dot-3 { top: 60%; left: 55%; }
+
+.presence-info {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin-left: 5%;
+}
+
+.presence-card {
+  padding: 30px;
+  border-radius: var(--radius-md);
+}
+
+.presence-card h3 {
+  font-size: 24px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.presence-card p {
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px;
+  }
+  .dot-1 { top: 20%; left: 70%; }
+  .dot-2 { top: 50%; left: 80%; }
+  .dot-3 { top: 70%; left: 60%; }
+}

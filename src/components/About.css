@@ -1,0 +1,129 @@
+.about-section {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.about-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.about-header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.story-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform var(--transition-fast);
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(227, 6, 19, 0.05);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.story-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.story-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.innovation-banner {
+  background: linear-gradient(135deg, var(--bg-dark), #222);
+  color: white;
+  padding: 60px 40px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.innovation-banner h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: 16px;
+  color: var(--primary-red);
+}
+
+.innovation-banner p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.team-member {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+  border-left: 4px solid var(--primary-red);
+}
+
+.member-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.member-icon {
+  color: var(--primary-red);
+}
+
+.member-header h4 {
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.member-header span {
+  font-size: 14px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-member p {
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .story-grid, .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,98 @@
+.sustainability {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.sustainability-header {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sustainability-title-area {
+  max-width: 700px;
+}
+
+.sustainability-title-area h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.sustainability-title-area p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.sustainability-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-red);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sustainability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sustainability-card {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sustainability-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(227, 6, 19, 0.05);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+
+.sustainability-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111;
+  line-height: 1.3;
+}
+
+.sustainability-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .sustainability-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sustainability-grid {
+    grid-template-columns: 1fr;
+  }
+}

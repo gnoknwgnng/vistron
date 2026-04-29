@@ -1,0 +1,72 @@
+.why-choose-us {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.why-header {
+  margin-bottom: 50px;
+}
+
+.why-header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #111;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.reason-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border-bottom: 3px solid transparent;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border-bottom-color: var(--primary-red);
+}
+
+.reason-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  transition: all var(--transition-fast);
+}
+
+.reason-card:hover .reason-icon {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.reason-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.reason-card p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
